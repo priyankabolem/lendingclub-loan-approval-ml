@@ -61,16 +61,47 @@ The analysis leverages a dataset of approximately 38,000 historical loan applica
 
 The ensemble methods (Random Forest and XGBoost) demonstrated superior performance in balancing default detection accuracy with false positive minimization. These models effectively capture non-linear relationships and interaction effects in the data.
 
+![Model Performance Comparison](screenshots/model_performance_comparison.png)
+
+Key observations:
+- Random Forest and Gradient Boosting achieve the highest accuracy (~84%)
+- All models show strong precision and recall metrics
+- ROC-AUC scores above 0.85 indicate excellent discriminative power
+
 ## Visual Analysis
 
 ### Loan Status Distribution
 ![Loan Status Distribution](screenshots/loan_status_distribution.png)
 
-### Interest Rate Risk Analysis
-![Loan Amount vs Interest Rate](screenshots/loan_amount_vs_interest_rate.png)
+The dataset shows approximately 32,000 fully paid loans versus 5,500 defaults, indicating an 85% repayment rate.
+
+### Interest Rate Distribution
+![Interest Rate Distribution](screenshots/interest_rate_distribution.png)
+
+Interest rates follow a bimodal distribution with peaks around 7.5% and 13%, reflecting different risk tiers.
 
 ### Credit Grade Performance
-![Default Rate by Grade](screenshots/default_rate_by_grade.png)
+![Loan Grade Distribution](screenshots/loan_grade_distribution.png)
+
+Grades B and C dominate the portfolio, representing medium-risk borrowers.
+
+### Repayment Analysis by Grade
+![Repayment Rate by Grade](screenshots/repayment_rate_by_grade.png)
+
+Grade A loans show the highest repayment rate (~95%), with a clear declining trend through Grade G (~67%).
+
+### Feature Correlation Analysis
+![Correlation Matrix](screenshots/correlation_matrix.png)
+
+Key correlations:
+- Strong relationship between loan amount and installment (0.94)
+- Interest rate correlates with loan grade and default risk
+- Employment length shows weak correlation with default probability
+
+### Model Performance Comparison
+![ROC Curves Comparison](screenshots/roc_curves_comparison.png)
+
+ROC curves demonstrate that Gradient Boosting achieves the best balance between true positive rate and false positive rate.
 
 ## Project Structure
 
@@ -79,10 +110,14 @@ loan-default-prediction/
 ├── Starter_Code_Loan_Approval_Lending_Club.ipynb  # Main analysis notebook
 ├── README.md                                       # Project documentation
 ├── screenshots/                                    # Visualization outputs
+│   ├── model_performance_comparison.png
 │   ├── loan_status_distribution.png
-│   ├── loan_amount_vs_interest_rate.png
-│   └── default_rate_by_grade.png
-└── data/                                          # Dataset directory (optional)
+│   ├── interest_rate_distribution.png
+│   ├── loan_grade_distribution.png
+│   ├── repayment_rate_by_grade.png
+│   ├── correlation_matrix.png
+│   └── roc_curves_comparison.png
+└── loans.csv                                      # Dataset file
 ```
 
 ## Technology Stack
